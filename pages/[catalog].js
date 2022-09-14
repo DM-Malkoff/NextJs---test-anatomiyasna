@@ -1,21 +1,30 @@
 import {useEffect} from "react";
-import {getMainMenu} from "../../store/menuSlice";
+import {getMainMenu} from "../store/menuSlice";
 import {useDispatch} from "react-redux";
-import BreadCrumbs from "../../components/breadCrumbs";
+import BreadCrumbs from "../components/breadCrumbs";
 import Link from "next/link";
+import Head from "next/head";
+import {useRouter} from "next/router";
+import {getCities} from "../store/citiesSlice";
 
 const Catalog = ({citiesData, mainMenuData, products}) => {
     const popularLinks = products.popularLinks
-
+    const router = useRouter()
     const dispatch = useDispatch()
     useEffect(() => {
         const mainMenu = mainMenuData.catalogs
         dispatch(getMainMenu(mainMenu))
+        dispatch((getCities(citiesData)))
     }, [])
 
     return (
-        <div>
-            {/*<BreadCrumbs breadCrumbs={products.breadcrumbs}/>*/}
+        <>
+            <Head>
+                <title>{products.heading}</title>
+                <meta name="description" content={products.heading} />
+                <link rel="canonical" href={router.asPath} />
+            </Head>
+            <BreadCrumbs breadCrumbs={products.breadcrumbs}/>
             <div className="h1-box">
                 <h1>{products.heading}</h1>
             </div>
@@ -41,7 +50,7 @@ const Catalog = ({citiesData, mainMenuData, products}) => {
                     false
                 }
             </div>
-        </div>
+        </>
     );
 };
 

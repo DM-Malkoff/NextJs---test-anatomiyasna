@@ -81,9 +81,10 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="b-site-search">
-                            <div className="ya-site-form ya-site-form_inited_no " >
-                                <form action="//site.yandex.ru/search/site/catalog/" method="get" target="_self" className="b-site-search__form">
-                                    <input type="search" name="text" />
+                            <div className="ya-site-form ya-site-form_inited_no ">
+                                <form action="//site.yandex.ru/search/site/catalog/" method="get" target="_self"
+                                      className="b-site-search__form">
+                                    <input type="search" name="text"/>
                                     <input type="submit" value="Найти"/>
                                 </form>
                             </div>
@@ -119,7 +120,8 @@ const Header = () => {
                                 </div>
                                 <div className="b-favorites-block__popup-wr customer_popup_block-wr">
                                     <div className="b-favorites-block__popup customer_popup_block"><span
-                                        className="svg-icon svg-icon--close"><svg className="svg-icon__link"></svg></span></div>
+                                        className="svg-icon svg-icon--close"><svg
+                                        className="svg-icon__link"></svg></span></div>
                                 </div>
                             </div>
                             <div className="b-cart-block" id="cartInfo" data-preview-url="/izhevsk/order/cart/preview/"
@@ -127,7 +129,8 @@ const Header = () => {
                                 <div className="b-cart-block__title customer_title_block"></div>
                                 <div className="b-cart-block__popup-wr customer_popup_block-wr">
                                     <div className="b-cart-block__popup customer_popup_block"><span
-                                        className="svg-icon svg-icon--close"><svg className="svg-icon__link"></svg></span>
+                                        className="svg-icon svg-icon--close"><svg
+                                        className="svg-icon__link"></svg></span>
                                         <div className="b-mini-prod-list"><p>Вы не добавили ни одного товара в
                                             корзину</p></div>
                                     </div>
@@ -137,7 +140,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-            <MainMenu />
+            <MainMenu/>
         </header>
     );
 };

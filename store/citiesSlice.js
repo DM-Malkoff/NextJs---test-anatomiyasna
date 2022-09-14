@@ -6,7 +6,7 @@ const menuCities = createSlice({
         cities: []
     },
     reducers: {
-        getCities(state,action){
+        getCities(state, action) {
             state.cities = [action.payload]
         }
     }

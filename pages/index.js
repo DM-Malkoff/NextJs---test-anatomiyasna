@@ -20,7 +20,7 @@ function Home({mainMenuData, citiesData}) {
                     в магазине «Анатомия сна»</title>
                 <meta name="description"
                       content="В магазине «Анатомия сна» широкий ассортимент матрасов, кроватей и диванов в Ижевске всех размеров! Удобные способы оплаты, рассрочка, сезонные скидки и бесплатная доставка в Ижевске. Заводская гарантия, свободный обмен и возврат товара."/>
-                <meta name="keywords" content="" />
+                <meta name="keywords" content=""/>
             </Head>
             <h1 className="about-shop-main__title ready">ИНТЕРНЕТ-МАГАЗИН МАТРАСОВ АНАТОМИЯ СНА в Москве</h1>
         </>
@@ -34,10 +34,12 @@ export async function getServerSideProps() {
     const citiesUrl = await fetch('https://www.anatomiyasna.ru/api/region/getRegions/')
     const citiesData = await citiesUrl.json()
 
-    return {props: {
-        mainMenuData: mainMenuData,
-        citiesData: citiesData,
-    }}
+    return {
+        props: {
+            mainMenuData: mainMenuData,
+            citiesData: citiesData,
+        }
+    }
 }
 
 export default Home

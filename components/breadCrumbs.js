@@ -1,15 +1,15 @@
 import Link from "next/link";
 
 const BreadCrumbs = ({breadCrumbs}) => {
-    console.log("breadCrumbs",breadCrumbs)
+    console.log("breadCrumbs", breadCrumbs)
     return (
         <div>
             <ol className="path">
-                {breadCrumbs.map((item,index) => {
-                    return(
+                {breadCrumbs.map((item, index) => {
+                    return (
                         <>
                             <li>
-                                {index !== breadCrumbs.length-1 ?
+                                {index !== breadCrumbs.length - 1 ?
                                     <Link href={item.url}>
                                         <a>{item.title}</a>
                                     </Link>
@@ -17,7 +17,7 @@ const BreadCrumbs = ({breadCrumbs}) => {
                                     <li>{item.title}</li>
                                 }
                             </li>
-                            {index !== breadCrumbs.length-1 ?
+                            {index !== breadCrumbs.length - 1 ?
                                 <li><i>/</i></li>
                                 :
                                 false

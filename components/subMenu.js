@@ -1,12 +1,12 @@
 import Link from "next/link";
 import {useEffect, useRef, useState} from "react";
 
-const SubMenu = ({item,subLevel,showSubMenu,onClick}) => {
+const SubMenu = ({item, subLevel, showSubMenu, onClick}) => {
     const [showMenu, setShowMenu] = useState(false)
 
-    useEffect(()=>{
+    useEffect(() => {
         setShowMenu(showSubMenu)
-    },[showSubMenu])
+    }, [showSubMenu])
 
     const handler = (e) => {
         onClick()
@@ -14,11 +14,13 @@ const SubMenu = ({item,subLevel,showSubMenu,onClick}) => {
 
     return (
         <li
-            className={`b-folder-h__li b-folder-h__li--level-1 dropdown-wrap ${showMenu ? 'opened':''}`}
+            className={`b-folder-h__li b-folder-h__li--level-1 dropdown-wrap ${showMenu ? 'opened' : ''}`}
             onClick={handler}
         >
             <Link href="#">
-                <a onClick={(e)=> {e.preventDefault()}}>
+                <a onClick={(e) => {
+                    e.preventDefault()
+                }}>
                     {item.title}
                     <span className="svg-icon svg-icon--angle-down"></span>
                 </a>
@@ -29,16 +31,16 @@ const SubMenu = ({item,subLevel,showSubMenu,onClick}) => {
                         <ul>
                             {subLevel.map((subItem) => {
                                 const symbolPositionArr = []
-                                for (let i =0 ; i < subItem.url.length; i++){
-                                    symbolPositionArr.push(subItem.url.indexOf('/',i))
+                                for (let i = 0; i < subItem.url.length; i++) {
+                                    symbolPositionArr.push(subItem.url.indexOf('/', i))
                                 }
 
-                                const url = subItem.url.substr(symbolPositionArr[1],subItem.url.length)
+                                const url = subItem.url.substr(symbolPositionArr[1], subItem.url.length)
 
                                 return (
                                     <li key={subItem.url}
                                         className="b-folder-h__li b-folder-h__li--level-2 hasChild li_ul__1"
-                                        onClick={()=> setShowMenu(false)}
+                                        onClick={() => setShowMenu(false)}
                                     >
                                         <Link href={url}>
                                             <a>{subItem.title}</a>

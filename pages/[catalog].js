@@ -21,8 +21,8 @@ const Catalog = ({citiesData, mainMenuData, products}) => {
         <>
             <Head>
                 <title>{products.heading}</title>
-                <meta name="description" content={products.heading} />
-                <link rel="canonical" href={router.asPath} />
+                <meta name="description" content={products.heading}/>
+                <link rel="canonical" href={router.asPath}/>
             </Head>
             <BreadCrumbs breadCrumbs={products.breadcrumbs}/>
             <div className="h1-box">
@@ -34,7 +34,7 @@ const Catalog = ({citiesData, mainMenuData, products}) => {
                         Покупатели часто ищут:
                         <ul>
                             {popularLinks.map((item) => {
-                                return(
+                                return (
                                     <li key={item.title}>
                                         <Link href={item.link}>
                                             <a>
@@ -56,7 +56,7 @@ const Catalog = ({citiesData, mainMenuData, products}) => {
 
 export default Catalog;
 
-export async function getServerSideProps(ctx){
+export async function getServerSideProps(ctx) {
     const mainMenuUrl = await fetch('https://www.anatomiyasna.ru/api/menu/headerCatalog/')
     const mainMenuData = await mainMenuUrl.json()
 
@@ -66,8 +66,8 @@ export async function getServerSideProps(ctx){
     const productsData = await fetch(`https://www.anatomiyasna.ru/api/pageData/getPageData/?slug=${ctx.query.catalog}`)
     const products = await productsData.json()
 
-    return{
-        props : {
+    return {
+        props: {
             mainMenuData: mainMenuData,
             citiesData: citiesData,
             products: products

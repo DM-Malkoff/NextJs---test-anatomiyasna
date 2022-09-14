@@ -4,7 +4,7 @@ import citiesSlice from "./citiesSlice";
 
 export default configureStore({
     reducer: {
-        menu:  menuSlice,
+        menu: menuSlice,
         cities: citiesSlice
     }
 })

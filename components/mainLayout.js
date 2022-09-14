@@ -5,11 +5,11 @@ import Content from "./content";
 const MainLayout = ({children}) => {
     return (
         <div className="app__wrapper">
-            <Header />
+            <Header/>
             <Content>
                 {children}
             </Content>
-            <Footer />
+            <Footer/>
         </div>
     );
 };

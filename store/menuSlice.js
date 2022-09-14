@@ -6,7 +6,7 @@ const menuSlice = createSlice({
         menu: []
     },
     reducers: {
-        getMainMenu(state,action){
+        getMainMenu(state, action) {
             state.menu = [...action.payload]
         }
     }

@@ -10,22 +10,22 @@ const SelectCity = () => {
     const [menuBlockHeight, setMenuBlockHeight] = useState(0)
     useEffect(() => {
         setMenuBlockHeight(ref.current.scrollHeight)
-    },[])
+    }, [])
 
-    useEffect(()=>{
-        if (citiesList.length){
+    useEffect(() => {
+        if (citiesList.length) {
             setMoscowCities(citiesList[0].moscow)
         }
-    },[citiesList])
+    }, [citiesList])
 
-    useEffect(()=>{
+    useEffect(() => {
         document.addEventListener('click', (e) => {
-            const withinBoundaries =e.composedPath().includes(ref.current)
-            if (!withinBoundaries){
+            const withinBoundaries = e.composedPath().includes(ref.current)
+            if (!withinBoundaries) {
                 setShowPopup(false)
             }
         })
-    },[])
+    }, [])
 
     const handler = (e) => {
         e.preventDefault()
@@ -41,13 +41,13 @@ const SelectCity = () => {
                 <span className="svg-icon svg-icon--angle-down"><svg
                     className="svg-icon__link"></svg></span>
             </a>
-            <div className={`city-popup ${showPopup ? 'showPopup': ''}`} id="region_choice" ref={ref}>
+            <div className={`city-popup ${showPopup ? 'showPopup' : ''}`} id="region_choice" ref={ref}>
                 <div className="city-popup__in">
                     <div className="city-popup__items city-popup__items--moscow">
                         <div className="city-popup__items-title">Москва и МО</div>
                         <div className="city-popup__items-body">
                             {moscowCities.map((item) => {
-                                return(
+                                return (
                                     <div key={item.id} className="city-popup__item">
                                         <a href="#moscow"
                                            className="city-popup__item-link changeRegionLink active">

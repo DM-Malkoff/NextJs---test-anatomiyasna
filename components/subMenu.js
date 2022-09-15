@@ -40,8 +40,6 @@ const SubMenu = ({item, subLevel, showSubMenu, onClick}) => {
                                     url = subItem.url.substr(symbolPositionArr[1], subItem.url.length)
                                 }
 
-                                console.log("url >> ",url)
-
                                 return (
                                     <li key={subItem.url}
                                         className="b-folder-h__li b-folder-h__li--level-2 hasChild li_ul__1"

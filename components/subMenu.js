@@ -35,8 +35,12 @@ const SubMenu = ({item, subLevel, showSubMenu, onClick}) => {
                                 for (let i = 0; i < subItem.url.length; i++) {
                                     symbolPositionArr.push(subItem.url.indexOf('/', i))
                                 }
+                                let url = subItem.url
+                                if (symbolPositionArr.length > 2){
+                                    url = subItem.url.substr(symbolPositionArr[1], subItem.url.length)
+                                }
 
-                                const url = subItem.url.substr(symbolPositionArr[1], subItem.url.length)
+                                console.log("url >> ",url)
 
                                 return (
                                     <li key={subItem.url}

@@ -1,8 +1,11 @@
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useEffect, useRef, useState} from "react";
+import {changeCity} from "../store/changedCitySlice";
 
 const SelectCity = () => {
+    const changedCity = useSelector(state => state.city.city)
     const citiesList = useSelector(state => state.cities.cities)
+    const dispatch = useDispatch()
     const [showPopup, setShowPopup] = useState(false)
     const [moscowCities, setMoscowCities] = useState([])
 
@@ -27,17 +30,21 @@ const SelectCity = () => {
         })
     }, [])
 
-    const handler = (e) => {
+    const popupHandler = (e) => {
         e.preventDefault()
         e.stopPropagation()
         setShowPopup(!showPopup)
     }
+    const changeCityHandler = (cityName) => {
+        dispatch(changeCity(cityName))
+        setShowPopup(false)
+    }
 
     return (
         <>
-            <a href="#" className="app-header__city-in" onClick={handler}>
+            <a href="#" className="app-header__city-in" onClick={popupHandler}>
                 <span className="svg-icon svg-icon--cursor"></span>
-                <i className="app-header__city-text">Москва</i>
+                <i className="app-header__city-text">{changedCity}</i>
                 <span className="svg-icon svg-icon--angle-down"><svg
                     className="svg-icon__link"></svg></span>
             </a>
@@ -49,7 +56,7 @@ const SelectCity = () => {
                             {moscowCities.map((item) => {
                                 return (
                                     <div key={item.id} className="city-popup__item">
-                                        <a href="#moscow"
+                                        <a href="#" onClick={() => changeCityHandler(item.title)}
                                            className="city-popup__item-link changeRegionLink active">
                                             {item.title}
                                         </a>

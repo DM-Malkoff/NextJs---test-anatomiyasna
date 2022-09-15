@@ -14,7 +14,7 @@ const Catalog = ({citiesData, mainMenuData, products}) => {
     useEffect(() => {
         const mainMenu = mainMenuData.catalogs
         dispatch(getMainMenu(mainMenu))
-        dispatch((getCities(citiesData)))
+        dispatch(getCities(citiesData))
     }, [])
 
     return (
@@ -24,7 +24,7 @@ const Catalog = ({citiesData, mainMenuData, products}) => {
                 <meta name="description" content={products.heading}/>
                 <link rel="canonical" href={router.asPath}/>
             </Head>
-            <BreadCrumbs breadCrumbs={products.breadcrumbs}/>
+            <BreadCrumbs breadCrumbsData={products.breadcrumbs}/>
             <div className="h1-box">
                 <h1>{products.heading}</h1>
             </div>

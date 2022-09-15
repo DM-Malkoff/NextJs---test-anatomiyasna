@@ -1,28 +1,33 @@
 import Link from "next/link";
+import {useEffect, useState} from "react";
 
-const BreadCrumbs = ({breadCrumbs}) => {
-    console.log("breadCrumbs", breadCrumbs)
+const BreadCrumbs = ({breadCrumbsData}) => {
+
+    const [breadCrumbs, setBreadCrumbs] = useState([])
+    useEffect(() => {
+        setBreadCrumbs(breadCrumbsData)
+    }, [])
+
     return (
         <div>
             <ol className="path">
                 {breadCrumbs.map((item, index) => {
                     return (
-                        <>
-                            <li>
-                                {index !== breadCrumbs.length - 1 ?
-                                    <Link href={item.url}>
-                                        <a>{item.title}</a>
-                                    </Link>
-                                    :
-                                    <li>{item.title}</li>
-                                }
-                            </li>
+                        <li key={index}>
                             {index !== breadCrumbs.length - 1 ?
-                                <li><i>/</i></li>
+                                <Link href={item.url}>
+                                    <a>{item.title}</a>
+
+                                </Link>
+                                :
+                                <span>{item.title}</span>
+                            }
+                            {index !== breadCrumbs.length - 1 ?
+                                <span><i>/</i></span>
                                 :
                                 false
                             }
-                        </>
+                        </li>
                     )
                 })}
             </ol>

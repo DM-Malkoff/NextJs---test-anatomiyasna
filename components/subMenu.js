@@ -1,5 +1,5 @@
 import Link from "next/link";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 
 const SubMenu = ({item, subLevel, showSubMenu, onClick}) => {
     const [showMenu, setShowMenu] = useState(false)
@@ -20,6 +20,7 @@ const SubMenu = ({item, subLevel, showSubMenu, onClick}) => {
             <Link href="#">
                 <a onClick={(e) => {
                     e.preventDefault()
+                    setShowMenu(!showMenu)
                 }}>
                     {item.title}
                     <span className="svg-icon svg-icon--angle-down"></span>
